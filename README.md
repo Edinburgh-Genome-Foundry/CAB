@@ -1,3 +1,6 @@
+![docker-organization](https://github.com/Edinburgh-Genome-Foundry/CAB/blob/master/docs/imgs/CAB-title-small.png)
+
+
 # CAB - The friendly Computational Application Boilerplate
 
 CAB is a boiler plate to easily create websites with multiple computational apps.
@@ -12,7 +15,7 @@ requiring from the programmer to be familiar with Python and Vue.JS.
 Below are a few screenshots of CAB out of the box. For an example of website built
 with CAB, see [cuba.genomefoundry.org](http://cuba.genomefoundry.org/).
 
-![docker-organization](https://github.com/Edinburgh-Genome-Foundry/CAB/blob/master/docs/imgs/plan.png)
+![docker-organization](https://github.com/Edinburgh-Genome-Foundry/CAB/blob/master/docs/imgs/screenshots.png)
 
 ## What's inside ?
 
@@ -136,15 +139,24 @@ directory run ``git push prodserver master``. You will need to rebuild the
 containers on the server if you have modified the frontend or added dependencies
 to the backend (we may simplify this later).
 
+Developer's guide
+------------------
+
+This section (to be expanded) will provide insights on CAB, for developers willing
+to hack or extend the boilerplate. Right now we can give this nice map of the
+``docker-compose`` integration:
+
+![docker-organization](https://github.com/Edinburgh-Genome-Foundry/CAB/blob/master/docs/imgs/composition.png)
+
+
 Licence
 -------
 
-CAB is an open source software originally written by [Zulko](https://github.com/Zulko)
-at the [Edinburgh Genome Foundry](http://genomefoundry.org/) and released on
-[Github](https://github.com/Edinburgh-Genome-Foundry/CAB) under the MIT licence
-(¢ Edinburgh Genome Foundry). Everyone is welcome to contribute !
+CAB is an open source software originally written at the [Edinburgh Genome Foundry](http://genomefoundry.org/) by [Zulko](https://github.com/Zulko)
+and released on [Github](https://github.com/Edinburgh-Genome-Foundry/CAB) under
+the MIT licence (¢ Edinburgh Genome Foundry). Everyone is welcome to contribute !
 
 If you publish an app made with CAB, you can licence your own code under any
-other licence and copyright, by placing the terms of the licence on top of each
-new file you create (this will typically be one file in the frontend and one
+other licence and copyright, e.g. by placing the terms of the licence on top of
+each new file you create (this will typically be one file in the frontend and one
 file in the backend).

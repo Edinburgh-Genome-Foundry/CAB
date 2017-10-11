@@ -1,6 +1,6 @@
 """Bla."""
 
-from ..base import AsyncWorker, StartJobView, JobResult
+from ..base import AsyncWorker, StartJobView
 from ..serializers import FileSerializer
 from rest_framework import serializers
 import time

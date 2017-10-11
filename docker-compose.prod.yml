@@ -10,7 +10,7 @@ services:
       - DEBUG=False
 
   vue:
-    command: cd dist && http-server -p 8080 --push-state
+    command: ./production_server.sh
 
   nginx:
     environment:

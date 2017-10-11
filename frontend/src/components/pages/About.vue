@@ -1,5 +1,5 @@
 <template lang='pug'>
-.container
+.page
   h1  About this website
   img.about-big-logo(src='../../assets/images/CAB-title.png')
   p.

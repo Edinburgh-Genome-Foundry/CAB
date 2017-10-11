@@ -1,0 +1,17 @@
+version: '2'
+
+services:
+  django:
+    environment:
+      - DEBUG=False
+
+  rqworker:
+    environment:
+      - DEBUG=False
+
+  vue:
+    command: cd dist && http-server -p 8080 --push-state
+
+  nginx:
+    environment:
+      - BUFFERING=on

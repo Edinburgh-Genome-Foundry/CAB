@@ -1,0 +1,54 @@
+version: '2'
+
+services:
+
+  redis:
+    restart: always
+    image: redis
+
+  django:
+    restart: always
+    build:
+      context: backend
+    command: gunicorn website.wsgi:application -b :8082 --reload
+    links:
+      - redis
+    depends_on:
+      - redis
+    volumes:
+      - ./backend:/code
+
+  rqworker:
+    restart: always
+    build: backend
+    command: ./rqworker_reload.sh
+    links:
+      - redis
+      - django
+    depends_on:
+      - redis
+      - django
+    volumes:
+      - ./backend:/code
+
+  vue:
+    restart: always
+    build: frontend
+    command: npm run dev
+    volumes:
+      - ./frontend:/code
+      - /code/node_modules
+
+  nginx:
+    restart: always
+    image: nginx
+    ports:
+      - "80:80"
+    links:
+      - vue
+      - django
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.template
+    environment:
+     - BUFFERING=off
+    command: /bin/bash -c "envsubst '$$BUFFERING' < /etc/nginx/nginx.template > /etc/nginx/nginx.conf && nginx -g 'daemon off;'"

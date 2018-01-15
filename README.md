@@ -3,6 +3,7 @@
 </p>
 <h2 align="center">CAB - The friendly Computational Application Boilerplate</h2>
 
+[![Build Status](https://travis-ci.org/Edinburgh-Genome-Foundry/CAB.svg?branch=master)](https://travis-ci.org/Edinburgh-Genome-Foundry/CAB)
 
 CAB is a boiler plate to easily create websites with multiple computational apps.
 A computational app consists in a page with a form (which can be interactive), and

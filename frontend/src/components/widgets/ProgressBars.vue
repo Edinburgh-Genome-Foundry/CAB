@@ -18,5 +18,8 @@ export default {
 <style lang='scss' scoped>
 .progress-bars {
   font-family: 'Inconsolata', Courier;
+  max-width: 500px;
+  margin: 0 auto;
 }
+
 </style>

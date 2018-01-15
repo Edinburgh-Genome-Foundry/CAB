@@ -1,6 +1,6 @@
 <!-- src/components/Home.vue -->
 <template lang="pug">
-.home
+.home.page
   h1 CAB, the friendly <br /> Computational <br /> App Boilerplate
   web-links(emailSubject='[CAB] Some user feedback',
             tweetMessage="CAB, the friendly Computational App Boilerplate",

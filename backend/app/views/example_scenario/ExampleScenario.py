@@ -33,7 +33,7 @@ class worker_class(AsyncWorker):
         for i in self.logger.iter_bar(loop=range(6)):
             if i == 3:
                 self.logger(message="Hey we're halfway through!")
-            for j in self.logger.iter_bar(subloop=range(50)):
+            for j in self.logger.iter_bar(subloop=range(40)):
                 time.sleep(0.1)
 
         # When the computations are done, return some results data.

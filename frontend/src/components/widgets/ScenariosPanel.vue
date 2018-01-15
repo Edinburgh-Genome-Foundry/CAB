@@ -1,12 +1,12 @@
 <template lang="pug">
 el-row
-	el-col(:xs="24", :sm="12", :md="6", :lg="6" v-for='scenario in scenarios', :key='scenario.infos.title')
+	el-col(:xs="24", :sm="12", :md="6", :lg="6" v-for='scenario in scenarios', :key='scenario.default.infos.title')
 		el-card.box-card
-			img.icon(:src='scenario.infos.icon', alt='')
+			img.icon(:src='scenario.default.infos.icon', alt='')
 			.caption
-				h3 {{scenario.infos.title}}
-				p.thumbnail-description {{scenario.infos.description}}
-				router-link(:to='scenario.infos.path')
+				h3 {{scenario.default.infos.title}}
+				p.thumbnail-description {{scenario.default.infos.description}}
+				router-link(:to='scenario.default.infos.path')
 					el-button(type='primary') Go
 </template>
 

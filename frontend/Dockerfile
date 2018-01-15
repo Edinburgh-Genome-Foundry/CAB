@@ -2,7 +2,9 @@ FROM node:wheezy
 
 RUN npm install spa-http-server -g
 RUN mkdir /code
-ADD . /code
 WORKDIR /code
-RUN npm install
+ADD package.json .
+RUN yarn install
+ADD . .
+WORKDIR .
 RUN npm run build

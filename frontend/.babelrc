@@ -1,16 +1,18 @@
 {
   "presets": [
-    ["es2015", { "modules": false }],
+    ["env", { "modules": false }],
     "stage-2"
   ],
   "plugins": [
     ["component", [
       {
         "libraryName": "element-ui",
-        "styleLibraryName": "theme-default"
+        "styleLibraryName": "theme-chalk"
       }
     ],
-    "transform-runtime"]
+    "transform-runtime"],
+    "transform-es2015-modules-commonjs",
+    "dynamic-import-node"
   ],
   "comments": false,
   "env": {

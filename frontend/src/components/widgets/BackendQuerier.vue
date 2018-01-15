@@ -1,25 +1,26 @@
 <template lang='pug'>
-div
+.backend-querier
   input(type='text', size='25', value='', v-model='honeypot', :style="{display: 'none'}")
   el-button.center(v-if='submitButtonText.length > 0' @click='submit()', :disabled='status.polling.inProgress') {{submitButtonText }}
   .polling(v-if='status.polling.inProgress && showProgress')
-
+    .spinner
+      img(src='../../assets/images/cab-spinner.svg')
     .polling-message {{status.polling.data.message}}
-    el-steps(:space='100', :active='progressStage')
-      el-step(icon='upload')
-      el-step(icon='setting')
-      el-step.last-step(icon='message')
-    img.spinner(src='../../assets/images/cab-spinner.svg')
+    el-steps.steps(:active='progressStage', finish-status='success' align-center)
+      el-step(title='send' icon='el-icon-upload')
+      el-step(title='run' icon='el-icon-setting')
+      el-step.last-step(title='get' icon='el-icon-message')
+    </el-steps>
+
 </template>
 
 <script>
 import downloadbutton from './DownloadButton'
-import spinner from 'vue-spinner/src/PulseLoader'
 
 export default {
   name: 'backend-querier',
   props: {
-    submitButtonText: {default: ''},
+    submitButtonText: {default: 'Submit'},
     value: {default: () => ({})},
     backendUrl: {default: ''},
     backendIP: {default: 'auto'},
@@ -28,7 +29,7 @@ export default {
     showProgress: {default: true},
     submitTrigger: {default: false}
   },
-  data: function () {
+  data () {
     console.log(this.backendIP === 'auto' ? this.computeBackendIP() : this.backendIP)
     return {
       honeypot: '',
@@ -45,42 +46,41 @@ export default {
     }
   },
   components: {
-    downloadbutton,
-    spinner
+    downloadbutton
   },
   watch: {
     value: {
-      handler: function (val) {
+      handler (val) {
         this.status = val
       },
       deep: true
     },
     status: {
-      handler: function (val) {
+      handler (val) {
         console.log(val)
         this.$emit('input', val)
       },
       deep: true
     },
-    submitTrigger: function (value) {
+    submitTrigger (value) {
       if (value) {
         this.submit()
       }
     }
   },
   computed: {
-    fulldata: function () {
+    fulldata () {
       return {
         data: this.form,
         honeypot: this.honeypot
       }
     },
-    progressStage: function () {
-      return ['sending', 'queued', 'started', 'finished'].indexOf(this.status.polling.status)
+    progressStage () {
+      return ['queued', 'started', 'finished'].indexOf(this.status.polling.status)
     }
   },
   methods: {
-    submit: function () {
+    submit () {
       var errors = this.validateForm()
       if (errors.length) {
         this.status.requestError = 'Invalid form: ' + errors.join('   ')
@@ -106,7 +106,7 @@ export default {
         }
       })
     },
-    startPolling: function (jobId) {
+    startPolling (jobId) {
       var self = this
       this.status.polling.inProgress = true
       var jobPoller = setInterval(function () {
@@ -144,7 +144,7 @@ export default {
         })
       }.bind(this), 250)
     },
-    computeBackendIP: function () {
+    computeBackendIP () {
       var location = window.location.origin
       if (location[location.length - 5] === ':') {
         location = location.slice(0, location.length - 5)
@@ -155,7 +155,10 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang='scss' scoped>
+.backend-querier {
+  max-width: 100%;
+}
 
 .submit-button {
   margin-top: 20px;
@@ -173,16 +176,29 @@ export default {
 
 .polling {
   text-align:center;
-  margin-top: 50px
-}
-
-.last-step {
-  width: 40px !important;
+  margin-top: 50px;
 }
 
 .spinner {
   width: 120px;
-  margin-top: 2em;
+  height: 120px;
+  margin: 0 auto;
+  text-align: center;
+  img {
+    height: 120px;
+    width: 120px;
+    vertical-align: middle;
+    display: block;
+    margin: 0 auto;
+  }
+
+}
+
+// .last-step {
+//   width: 40px !important;
+// }
+.steps {
+  margin-top: 1em;
 }
 
 </style>

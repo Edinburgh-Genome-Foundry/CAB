@@ -156,6 +156,7 @@
          style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
          d="m 99.034924,177.39782 c 19.690596,4.2718 39.380996,3.8037 59.071496,0 0.5439,-0.1051 0.9334,0.45 1,1 l 0.063,0.521 c 0.067,0.55 1.1436,-0.8514 0.7857,-0.4286 -15.5887,18.4183 -48.5126,23.0938 -60.730896,0.3553 -0.2622,-0.488 -0.8203,-1.524 -1,-1 l -0.1894,0.5523 c -0.1797,0.524 0.4586,-1.1175 1,-1 z"
          id="rect4247-7-6-2-6-9"
+         class='mouth'
          inkscape:connector-curvature="0"
          sodipodi:nodetypes="cssssssssc" />
       <rect
@@ -206,12 +207,21 @@
   animation:car 1s linear infinite;
 }
 
+.mouth {
+  -webkit-transform-origin: center;
+  -moz-transform-origin: 50% 10%;
+  animation:mouth 1s linear infinite;
+}
+
 .eye {
     -webkit-animation:eye 3s cubic-bezier(.17,-0.29,.7,1.4) infinite;
     -webkit-transform-origin: center;
 }
+@-webkit-keyframes mouth { 50% { -webkit-transform:  translate(0, -20%)}}
 @-webkit-keyframes eye { 50% { -webkit-transform:  translate(-45%, 0)}}
-@-webkit-keyframes car { 50% { -webkit-transform:  scale(1, 0.95) translate(0, 5%)} 100% { -webkit-transform: scale(1, 1) rotate(0deg);}}
+<!-- @-webkit-keyframes car { 50% { -webkit-transform:  scale(1, 1) translate(0, 0%)} 100% { -webkit-transform: scale(1, 1) translate(0, 0%);}} -->
 @-moz-keyframes car { 50% { -moz-transform: scale(1, 0.95) translate(0, 5%)} }
-@-moz-keyframes eye { 50% { -moz-transform:  translate(-4%, 0)}}</style>
+@-moz-keyframes eye { 50% { -moz-transform:  translate(-4%, 0)}}
+@-moz-keyframes mouth { 50% { -moz-transform:  translate(0, -20%)}}
+</style>
 </svg>

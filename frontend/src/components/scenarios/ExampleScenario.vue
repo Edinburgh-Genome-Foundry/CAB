@@ -50,7 +50,7 @@ Example scenario
            :closable="false")
 
   //- The results section appears when the request returned interesting results.
-  .results(v-if='!queryStatus.polling.inProgress')
+  .results(v-if='!queryStatus.polling.inProgress && queryStatus.result.answer_text')
     //- Download button for the file produced by the backend
     p <b>The server's computations yielded the following result:</b>
     p {{queryStatus.result.answer_text}}

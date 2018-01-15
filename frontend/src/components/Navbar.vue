@@ -10,8 +10,8 @@ el-menu(:mode="fullWidth > 610 ? 'horizontal' : 'vertical'" @select="handleSelec
     //-     span(slot='title') {{category.category}}
     span(v-for='category in scenarios')
       el-menu-item(v-for='(scenario, subindex) in category.scenarios',
-                   :index="scenario.infos.path",
-                   :key='scenario.infos.path') {{scenario.infos.navbarTitle}}
+                   :index="scenario.default.infos.path",
+                   :key='scenario.default.infos.path') {{scenario.default.infos.navbarTitle}}
   el-menu-item(index='about') About
 </template>
 
@@ -35,7 +35,6 @@ export default {
     this.handleResize()
   }
 }
-
 </script>
 
 <style lang='scss' scoped>

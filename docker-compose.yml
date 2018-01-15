@@ -13,8 +13,10 @@ services:
     command: gunicorn website.wsgi:application -b :8082 --reload
     links:
       - redis
+      - rqworker
     depends_on:
       - redis
+      - rqworker
     volumes:
       - ./backend:/code
 
@@ -24,10 +26,8 @@ services:
     command: ./rqworker_reload.sh
     links:
       - redis
-      - django
     depends_on:
       - redis
-      - django
     volumes:
       - ./backend:/code
 
@@ -38,6 +38,7 @@ services:
     volumes:
       - ./frontend:/code
       - /code/node_modules
+      - /code/dist
 
   nginx:
     restart: always
@@ -49,6 +50,7 @@ services:
       - django
     volumes:
       - ./nginx/nginx.conf:/etc/nginx/nginx.template
+      - /var/log/nginx_cuba:/var/log/nginx
     environment:
      - BUFFERING=off
     command: /bin/bash -c "envsubst '$$BUFFERING' < /etc/nginx/nginx.template > /etc/nginx/nginx.conf && nginx -g 'daemon off;'"

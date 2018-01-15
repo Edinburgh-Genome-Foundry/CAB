@@ -1,5 +1,5 @@
 <template lang='pug'>
-  #app
+  #website
     .page
       navbar
     router-view
@@ -9,21 +9,14 @@
 
 
 <script>
-import auth from './auth'
 import navbar from './components/Navbar'
 import footersection from './components/Footer'
 
 export default {
   data () {
-    return {
-      user: auth.user
-    }
+    return {}
   },
-  methods: {
-    logout () {
-      auth.logout()
-    }
-  },
+  methods: {},
   components: {
     navbar,
     footersection
@@ -38,7 +31,7 @@ export default {
 @import url(https://fonts.googleapis.com/css?family=Inconsolata);
 @import url(https://fonts.googleapis.com/css?family=Raleway);
 
-#app {
+#website {
   font-family: 'Raleway', 'Source Sans Pro',  Helvetica, Arial, sans-serif;
   font-size:16px;
   -webkit-font-smoothing: antialiased;
@@ -59,7 +52,7 @@ body {
   margin-bottom: 60px;
 }
 
-.page {
+.page, .navbar {
   width:850px;
   max-width:95%;
   margin: 0px auto;

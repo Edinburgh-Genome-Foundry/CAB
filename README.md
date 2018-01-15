@@ -1,7 +1,8 @@
-![docker-organization](https://github.com/Edinburgh-Genome-Foundry/CAB/blob/master/docs/imgs/CAB-title-small.png)
+<p align="center">
+<img alt="CAB Logo" title="CAB Logo" src="https://github.com/Edinburgh-Genome-Foundry/CAB/blob/master/docs/imgs/CAB-title-small.png" width="400">
+</p>
+<h2 align="center">CAB - The friendly Computational Application Boilerplate</h2>
 
-
-# CAB - The friendly Computational Application Boilerplate
 
 CAB is a boiler plate to easily create websites with multiple computational apps.
 A computational app consists in a page with a form (which can be interactive), and

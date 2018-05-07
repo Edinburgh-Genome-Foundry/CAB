@@ -60,8 +60,8 @@ git clone git+github.com/Edinburgh-Genome-Foundry/CAB.git
 ```
 
 3. Go to the root ``CAB/`` directory (the one containing this README and the
-   ``docker-compose.yml``) and launch your application in development mode. The
-   first time you try this, Docker will download and build a lot of things,
+   ``docker-compose.yml``) and launch your application using the command below.
+   The first time you try this, Docker will download and build a lot of things,
    which may take several minutes. It will only take a few seconds the next
    times you run this command.
 

@@ -1,5 +1,5 @@
 django==1.10.5
-djangorestframework==3.5.3
+djangorestframework==3.9.1
 drfdocs==0.0.11
 drf-tracking==1.0.1
 django-cors-headers==2.0.0
